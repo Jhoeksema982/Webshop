@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 min-h-screen flex">
+    <aside class="w-64 bg-gray-800 text-white flex flex-col p-4">
+        <h2 class="text-2xl font-semibold mb-6">Admin Panel</h2>
+        <nav class="flex-1">
+            <ul class="space-y-4">
+                <li><a href="#" data-page="orders" class="block p-3 rounded hover:bg-gray-700">View Orders</a></li>
+                <li><a href="#" data-page="products" class="block p-3 rounded hover:bg-gray-700">Manage Products</a>
+                </li>
+                <li><a href="#" data-page="view-products" class="block p-3 rounded hover:bg-gray-700">View Products</a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="flex-1 p-6">
+        <div id="orders" class="page-content hidden">
+            <h1 class="text-3xl font-bold mb-6">Orders</h1>
+            <div id="orders-container"></div>
+        </div>
+
+        <div id="products" class="page-content hidden">
+            <h1 class="text-3xl font-bold mb-6">Manage Products</h1>
+            <div id="products-container" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6"></div>
+
+            <form id="add-product-form" class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl font-semibold mb-4">Add Product</h2>
+                <div class="mb-4">
+                    <label class="block mb-2 font-medium">Product Name</label>
+                    <input type="text" id="product-name" class="w-full p-2 border rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2 font-medium">Price</label>
+                    <input type="number" id="product-price" class="w-full p-2 border rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2 font-medium">Image URL</label>
+                    <input type="text" id="product-image" class="w-full p-2 border rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2 font-medium">Description</label>
+                    <textarea id="product-description" class="w-full p-2 border rounded" required></textarea>
+                </div>
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Add
+                    Product</button>
+            </form>
+            <form id="edit-product-form" class="bg-white p-6 rounded-lg shadow-lg mt-8">
+                <h2 class="text-xl font-semibold mb-4">Edit Product</h2>
+                <input type="hidden" id="edit-product-id">
+                <div class="mb-4">
+                    <label class="block mb-2 font-medium">Product Name</label>
+                    <input type="text" id="edit-product-name" class="w-full p-2 border rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2 font-medium">Price</label>
+                    <input type="number" id="edit-product-price" class="w-full p-2 border rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2 font-medium">Image URL</label>
+                    <input type="text" id="edit-product-image" class="w-full p-2 border rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2 font-medium">Description</label>
+                    <textarea id="edit-product-description" class="w-full p-2 border rounded" required></textarea>
+                </div>
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Save
+                    Changes</button>
+                <button type="button" id="cancel-edit"
+                    class="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600 ml-2">Cancel</button>
+            </form>
+
+        </div>
+
+        <div id="view-products" class="page-content hidden">
+            <h1 class="text-3xl font-bold mb-6">View Products</h1>
+            <button id="reset-products" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 mb-4">Reset
+                Products</button>
+            <div id="view-products-container" class="md:grid-cols-1 gap-4 mb-6"></div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/admin.js"></script>
+</body>
+
+</html>

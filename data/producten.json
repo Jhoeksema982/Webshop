@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Nendoroid – Jujutsu Kaisen – Satoru Gojo 0 Version",
+    "price": 59.99,
+    "image": "https://i.gyazo.com/5f5e1574046ceeba66b56848ed3f3dd0.webp",
+    "description": "From the anime movie “Jujutsu Kaisen 0” comes a Nendoroid of Satoru Gojo! He comes with three face plates including a standard expression, a concentrating expression and a smiling expression. Front hair parts with his hair down are included so you can display him with his blindfold off as well!"
+  },
+  {
+    "id": 2,
+    "name": "Nendoroid – Jujutsu Kaisen Suguru Geto",
+    "price": 59.99,
+    "image": "https://i.gyazo.com/a791b918ab2953224a3c854ea81672a2.webp",
+    "description": "From the anime series “Jujutsu Kaisen Hidden Inventory / Premature Death” comes a Nendoroid of Suguru Geto from when he attended Tokyo Jujutsu High School!"
+  },
+  {
+    "id": 3,
+    "name": "Nendoroid – Jujutsu Kaisen Choso edition",
+    "price": 59.99,
+    "image": "https://i.gyazo.com/f87aa5cae8c80a6f75bc8e9ca0d38751.webp",
+    "description": "From the anime series “Jujutsu Kaisen” comes a Nendoroid of big brother Choso!"
+  },
+  {
+    "id": 4,
+    "name": "Nendoroid – Jujutsu Kaisen Toji Fushiguro",
+    "price": 59.99,
+    "image": "https://i.gyazo.com/58d6112bf5692ab729b929762ef3da2e.webp",
+    "description": "From “Jujutsu Kaisen Hidden Inventory / Premature Death” comes a Nendoroid of Toji Fushiguro, the physically gifted man bound by a Heavenly Restriction."
+  },
+  {
+    "id": 5,
+    "name": "Nendoroid – Jujutsu Kaisen Sukuna edition",
+    "price": 59.99,
+    "image": "https://i.gyazo.com/e11f5bddd08d407c48e6c8a49755779a.webp",
+    "description": "From the anime series “Jujutsu Kaisen” comes a Nendoroid of Sukuna! He comes with three face plates including a standard face, a sneering face and a crazed face."
+  },
+  {
+    "id": 6,
+    "name": "Nendoroid – Jujutsu Kaisen Maki Zenin",
+    "price": 59.99,
+    "image": "https://i.gyazo.com/522fa04c919059fc9d3fcb761abc18d6.webp",
+    "description": "From the anime series “Jujutsu Kaisen” comes a Nendoroid of Maki Zen’in! She comes with three face plates including a standard expression, a combat expression and a sullen expression."
+  }
+]

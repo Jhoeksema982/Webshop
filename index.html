@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="bg-gray-800">
+      <div class="mx-auto px-2 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          </div>
+          <div class="flex flex-shrink-0 items-center">
+            <a href="index.html">
+              <img class="logo-style" src="images/Choro-Q_Japanese_logo.png" alt="webshop-logo">
+            </a>
+          </div>
+          <div class="hidden sm:ml-6 sm:block">
+          </div>
+          <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <a href="winkelmand.html" class="relative">
+              <button
+                class="py-4 px-1 relative border-2 border-transparent text-white rounded-full hover:text-gray-400 focus:outline-none "
+                aria-label="Cart">
+                <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                  </path>
+                </svg>
+                <span id="cart-badge" class="absolute inset-0 object-right-top -mr-8 hidden">
+                  <div id="cart-item-count"
+                    class="inline-flex items-center px-1.5 py-0.5 border-2 border-white rounded-full text-xs font-semibold leading-4 bg-red-500 text-white">
+                    0
+                  </div>
+                </span>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+    <header>
+      <div class="w-full bg-cover bg-center shadow"
+        style="height:32rem; background-image: url(/images/jjkbanner3.jpg);">
+        <div class="flex items-center justify-center h-full w-full bg-gray-900 bg-opacity-30">
+          <div class="text-center">
+            <h1 class="text-white text-2xl font-bold uppercase md:text-6xl">Welkom bij mijn webshop!</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div id="product-cards-container" class="md:grid-cols-3 flex flex-wrap mx-4 mt-10 gap-10 justify-center"></div>
+  </div>
+  <footer class="p-4 md:p-8 lg:p-10 bg-gray-800">
+    <div class="mx-auto max-w-screen-xl text-center">
+      <div class="flex justify-center">
+        <img class="logo-style mb-4" src="images/Choro-Q_Japanese_logo.png" alt="#">
+      </div>
+      <p class="my-6 text-white">Open-source library of over 400+ web components and interactive
+        elements built for better web.</p>
+      <ul class="flex flex-wrap justify-center items-center mb-6 text-white">
+        <li>
+          <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
+        </li>
+        <li>
+          <a href="#" class="mr-4 hover:underline md:mr-6">Premium</a>
+        </li>
+        <li>
+          <a href="#" class="mr-4 hover:underline md:mr-6 ">Campaigns</a>
+        </li>
+        <li>
+          <a href="#" class="mr-4 hover:underline md:mr-6">Blog</a>
+        </li>
+        <li>
+          <a href="#" class="mr-4 hover:underline md:mr-6">Affiliate Program</a>
+        </li>
+        <li>
+          <a href="#" class="mr-4 hover:underline md:mr-6">FAQs</a>
+        </li>
+        <li>
+          <a href="#" class="mr-4 hover:underline md:mr-6">Contact</a>
+        </li>
+      </ul>
+      <span class="text-sm sm:text-center text-white">© 2021-2022 <a href="#" class="hover:underline">Flowbite™</a>.
+        All
+        Rights Reserved.</span>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+
+</html>
