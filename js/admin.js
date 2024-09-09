@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const productDescription = document.getElementById('product-description').value;
 
         const newProduct = {
-            id: generateProductId(),
+            id: generateUniqueProductId(),
             name: productName,
             price: productPrice,
             image: productImage,
@@ -58,8 +58,17 @@ document.addEventListener('DOMContentLoaded', function () {
         fetchProductsFromLocalStorage();
     });
 
-    function generateProductId() {
-        return Math.random().toString(36).substr(2, 9);
+    function generateUniqueProductId() {
+        let products = JSON.parse(localStorage.getItem('inventory')) || [];
+        let id;
+        let idExists = true;
+    
+        while (idExists) {
+            id = Math.floor(Math.random() * 100); // Generate a random ID between 0 and 99
+            idExists = products.some(product => product.id === id); // Check if ID already exists
+        }
+    
+        return id;
     }
 
     function showPage(page) {
@@ -155,14 +164,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const editButton = productCardContainer.querySelector(`button.edit-button[data-id="${product.id}"]`);
                 editButton.addEventListener('click', function () {
-                    // Populate the edit form with the current product data
                     document.getElementById('edit-product-id').value = product.id;
                     document.getElementById('edit-product-name').value = product.name;
                     document.getElementById('edit-product-price').value = product.price;
                     document.getElementById('edit-product-image').value = product.image;
                     document.getElementById('edit-product-description').value = product.description;
 
-                    // Show the edit form (assuming it's hidden initially)
                     document.getElementById('edit-product-form').classList.remove('hidden');
                 });
             });
@@ -194,7 +201,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let products = JSON.parse(localStorage.getItem('inventory')) || [];
 
-        const productIndex = products.findIndex(product => product.id === productId);
+        const productIndex = products.findIndex(product => product.id === parseInt(productId, 10));
+
 
         if (productIndex !== -1) {
             products[productIndex].name = productName;
@@ -205,7 +213,6 @@ document.addEventListener('DOMContentLoaded', function () {
             localStorage.setItem('inventory', JSON.stringify(products));
 
 
-            fetchProductsFromLocalStorage();
         } else {
             console.error('Product not found for editing.');
         }
