@@ -1,93 +1,95 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const urlParams = new URLSearchParams(window.location.search);
-  const productId = urlParams.get('id');
+<!DOCTYPE html>
+<html lang="en">
 
-  let products = JSON.parse(localStorage.getItem('inventory'));
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Detail</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/product-detail.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
 
-  if (products) {
-      displayProductDetail(productId, products);
-  } else {
-      fetchProductsFromJSON(productId);
-  }
-});
-
-function fetchProductsFromJSON(productId) {
-  fetch('data/producten.json')
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Failed to fetch product data');
-          }
-          return response.json();
-      })
-      .then(data => {
-          localStorage.setItem('inventory', JSON.stringify(data));
-
-          displayProductDetail(productId, data);
-      })
-      .catch(error => {
-          console.error('Error fetching product data:', error);
-      });
-}
-
-function displayProductDetail(productId, products) {
-  const product = products.find(item => item.id == productId);
-
-  if (product) {
-      const productDetailContainer = document.getElementById('product-detail');
-
-      const productDetailHtml = `
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="flex items-center justify-center">
-                  <img src="${product.image}" alt="${product.name}" class="md:w-96 w-full max-h-80 md:max-h-96 rounded-lg">
-              </div>
-              <div class="flex flex-col justify-center md:pl-12">
-                  <h2 class="text-2xl font-bold text-gray-800">${product.name}</h2>
-                  <p class="text-xl text-red-600 font-bold mt-2">€${product.price.toFixed(2)}</p>
-                  <p class="text-gray-600 mt-4">${product.description}</p>
-                  <div class="mt-6">
-                      <button id="addToCartBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none">
-                          Add to Cart
-                      </button>
-                  </div>
-              </div>
+<body>
+  <div class="w-full">
+    <nav class="bg-gray-800">
+      <div class="mx-auto px-2 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
           </div>
-      `;
+          <div class="flex flex-shrink-0 items-center">
+            <a href="index.html" class="flex items-center">
+              <img class="logo-style" src="/images/Choro-Q_Japanese_logo.png" alt="webshop-logo">
+            </a>
+          </div>
+          <div class="hidden sm:ml-6 sm:block">
+          </div>
+          <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <a href="winkelmand.html">
+              <button
+                class="py-4 px-1 relative border-2 border-transparent text-white rounded-full hover:text-gray-400 focus:outline-none "
+                aria-label="Cart">
+                <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                  </path>
+                </svg>
+                <span id="cart-badge" class="absolute inset-0 object-right-top -mr-8 hidden">
+                  <div id="cart-item-count"
+                    class="inline-flex items-center px-1.5 py-0.5 border-2 border-white rounded-full text-xs font-semibold leading-4 bg-red-500 text-white">
+                    0
+                  </div>
+                </span>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
 
-      productDetailContainer.innerHTML = productDetailHtml;
+    <div id="product-detail" class="flex flex-wrap my-10">
+    </div>
+  </div>
 
-      const addToCartButton = document.getElementById('addToCartBtn');
-      addToCartButton.addEventListener('click', () => {
-          addToCart(product);
-      });
+  <footer class="p-4 md:p-8 lg:p-10 bg-gray-800">
+    <div class="mx-auto max-w-screen-xl text-center">
+      <div class="flex justify-center">
+        <img class="logo-style mb-4" src="/images/Choro-Q_Japanese_logo.png" alt="#">
+      </div>
+      <p class="my-6 text-white">Open-source library of over 400+ web components and interactive
+        elements built for better web.</p>
+      <ul class="flex flex-wrap justify-center items-center mb-6 text-white">
+        <li>
+          <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
+        </li>
+        <li>
+          <a href="#" class="mr-4 hover:underline md:mr-6">Premium</a>
+        </li>
+        <li>
+          <a href="#" class="mr-4 hover:underline md:mr-6 ">Campaigns</a>
+        </li>
+        <li>
+          <a href="#" class="mr-4 hover:underline md:mr-6">Blog</a>
+        </li>
+        <li>
+          <a href="#" class="mr-4 hover:underline md:mr-6">Affiliate Program</a>
+        </li>
+        <li>
+          <a href="#" class="mr-4 hover:underline md:mr-6">FAQs</a>
+        </li>
+        <li>
+          <a href="#" class="mr-4 hover:underline md:mr-6">Contact</a>
+        </li>
+      </ul>
+      <span class="text-sm sm:text-center text-white">© 2021-2022 <a href="#" class="hover:underline">Flowbite™</a>.
+        All
+        Rights Reserved.</span>
+    </div>
+  </footer>
 
-  } else {
-      console.error('Product not found');
-  }
-}
+  <script src="/js/product-detail.js"></script>
+  <script src="/js/cart.js"></script>
+</body>
 
-function addToCart(product) {
-  let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-
-  let existingItem = cartItems.find(item => item.id === product.id);
-
-  if (existingItem) {
-      existingItem.quantity++;
-  } else {
-      cartItems.push({
-          id: product.id,
-          name: product.name,
-          price: product.price,
-          quantity: 1,
-          image: product.image
-      });
-  }
-
-  localStorage.setItem('cart', JSON.stringify(cartItems));
-
-  Swal.fire({
-      title: 'Added to Cart!',
-      text: `${product.name} has been added to your cart.`,
-      icon: 'success',
-      confirmButtonText: 'Continue Shopping'
-  });
-}
+</html>
