@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="text-gray-700">Shipping: $${shippingCost.toFixed(2)}</p>
                 <hr class="my-2">
                 <p class="text-gray-800 font-semibold">Total: $${totalPrice.toFixed(2)}</p>
-                <button id="order-button" class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Order</button>
+                <button id="order-button" class="mt-4 w-64 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Order</button>
             </div>
         `;
 
