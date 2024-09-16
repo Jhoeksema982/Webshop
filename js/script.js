@@ -39,7 +39,7 @@ function displayProducts(products) {
 
         card.innerHTML = `
             <a href="product-detail.html?id=${product.id}" class="block">
-                <img class="w-96 h-96" src="${product.image}">
+                <img class="lg:w-96 lg:h-96 h-72 w-96" src="${product.image}">
                 <div class="px-6 py-4">
                     <div class="font-bold text-xl mb-2">${product.name}</div>
                     <p class="text-gray-700 text-base">$${product.price}</p>
