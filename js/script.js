@@ -84,6 +84,9 @@ function addToCart(product) {
         title: 'Added to Cart!',
         text: `${product.name} has been added to your cart.`,
         icon: 'success',
-        confirmButtonText: 'Continue Shopping'
+        confirmButtonText: 'Continue Shopping',
+        didClose: () => {
+            window.location.href = 'index.html';
+        }
     });
 }
