@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     fetchProducts();
+    updateCartBadge();
 });
 
 function fetchProducts() {
@@ -61,6 +62,21 @@ function displayProducts(products) {
     });
 }
 
+function updateCartBadge() {
+    let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    let itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
+    const cartBadge = document.getElementById('cart-badge');
+    const cartItemCount = document.getElementById('cart-item-count');
+
+    if (itemCount > 0) {
+        cartBadge.classList.remove('hidden');
+        cartItemCount.textContent = itemCount;
+    } else {
+        cartBadge.classList.add('hidden');
+    }
+}
+
 function addToCart(product) {
     let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -76,17 +92,16 @@ function addToCart(product) {
             quantity: 1,
             image: product.image
         });
-    }
+    } 
 
     localStorage.setItem('cart', JSON.stringify(cartItems));
+
+    updateCartBadge()
 
     Swal.fire({
         title: 'Added to Cart!',
         text: `${product.name} has been added to your cart.`,
         icon: 'success',
-        confirmButtonText: 'Continue Shopping',
-        didClose: () => {
-            window.location.href = 'index.html';
-        }
+        confirmButtonText: 'Continue Shopping'
     });
 }
