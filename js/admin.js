@@ -62,12 +62,12 @@ document.addEventListener('DOMContentLoaded', function () {
         let products = JSON.parse(localStorage.getItem('inventory')) || [];
         let id;
         let idExists = true;
-    
+
         while (idExists) {
-            id = Math.floor(Math.random() * 100); // Generate a random ID between 0 and 99
-            idExists = products.some(product => product.id === id); // Check if ID already exists
+            id = Math.floor(Math.random() * 100);
+            idExists = products.some(product => product.id === id);
         }
-    
+
         return id;
     }
 
@@ -170,7 +170,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.getElementById('edit-product-image').value = product.image;
                     document.getElementById('edit-product-description').value = product.description;
 
+                    showPage('products');
                     document.getElementById('edit-product-form').classList.remove('hidden');
+                    document.getElementById('edit-product-form').scrollIntoView({ behavior: 'smooth' });
                 });
             });
         }
@@ -212,7 +214,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             localStorage.setItem('inventory', JSON.stringify(products));
 
-
+            editProductForm.reset();
+            fetchProductsFromLocalStorage();
         } else {
             console.error('Product not found for editing.');
         }
