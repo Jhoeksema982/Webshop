@@ -107,9 +107,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 url("https://media1.giphy.com/media/Hzdph9ISDR3e5q0UBy/giphy.gif?cid=6c09b952sngnr3h5tozmvouajinspfrike1k9t1o3noncr1w&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s")
                 left top
                 no-repeat
-                `
-            ,
+            `,
+            confirmButtonText: 'Go Back'
+        }).then(() => {
+            window.location.href = 'index.html';
         });
+        
     }
 
     function calculateTotalAmount() {
