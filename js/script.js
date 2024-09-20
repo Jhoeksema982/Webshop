@@ -64,8 +64,8 @@ function displayProducts(products) {
 
 function updateCartBadge() {
     let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    let itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
-
+    let itemCount = cartItems.length
+    console.log(itemCount);
     const cartBadge = document.getElementById('cart-badge');
     const cartItemCount = document.getElementById('cart-item-count');
 
